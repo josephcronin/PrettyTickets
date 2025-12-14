@@ -139,7 +139,6 @@ export const getRecentTickets = async (limit = 12): Promise<Array<{ id: string, 
 };
 
 const mapDbTicketToApp = (ticket: DbTicket) => {
-    // @ts-ignore 
     const imageUrl = ticket.ai_prompts?.cached_image_base64 || '';
 
     const ticketData: TicketData = {

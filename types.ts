@@ -1,4 +1,3 @@
-
 export interface TicketData {
   eventDetails: {
     artistOrEvent: string;
@@ -20,6 +19,7 @@ export interface TicketData {
   aiPrompts: {
     backgroundPrompt: string;
     ticketArtPrompt: string;
+    cached_image_base64?: string;
   };
   giftCopy: {
     ticketTitle: string;
