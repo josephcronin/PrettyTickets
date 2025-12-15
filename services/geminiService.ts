@@ -150,6 +150,10 @@ export const generateTicketMetadata = async (
   input: string,
   imageBase64?: string
 ): Promise<TicketData> => {
+  if (!process.env.API_KEY) {
+    throw new Error("Missing Google Gemini API Key. Please add 'API_KEY' to your Vercel Environment Variables.");
+  }
+
   const ai = new GoogleGenAI({ apiKey: process.env.API_KEY });
   
   try {
@@ -195,6 +199,10 @@ export const generateTicketMetadata = async (
 };
 
 export const generateTicketImage = async (prompt: string): Promise<string> => {
+  if (!process.env.API_KEY) {
+    throw new Error("Missing Google Gemini API Key.");
+  }
+  
   const ai = new GoogleGenAI({ apiKey: process.env.API_KEY });
   
   try {
